@@ -28,6 +28,11 @@
 #include "rom.h" /* unsigned char cart_rom[64*1024] */
 #include "osrom.h"
 
+#ifdef STM32F407xE
+	#define stricmp strcasecmp
+	#define strnicmp strncasecmp
+#endif
+
 unsigned char cart_ram1[64*1024];
 unsigned char cart_ram2[64*1024] __attribute__((section(".ccmram")));
 unsigned char cart_d5xx[256] = {0};
